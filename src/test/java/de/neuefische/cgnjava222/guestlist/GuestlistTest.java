@@ -14,4 +14,12 @@ public class GuestlistTest {
         List<String> actual = guestlist.getGuests();
         Assertions.assertEquals(Collections.emptyList(), actual);
     }
+
+    @Test
+    void shouldReadSameGuestsAsWrittenBefore() {
+        Guestlist guestlist = new Guestlist();
+        guestlist.setGuests(List.of("Karl", "Ute"));
+        List<String> actual = guestlist.getGuests();
+        Assertions.assertEquals(List.of("Karl", "Ute"), actual);
+    }
 }
