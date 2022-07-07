@@ -11,14 +11,16 @@ public class Guestlist {
     public static final Path PATH = Path.of("guests.txt");
 
     public List<String> getGuests() throws IOException {
-        if (!Files.exists(PATH)) {
-            return Collections.emptyList();
-        }
         return Files.readAllLines(PATH);
     }
 
     public void setGuests(List<String> guests) throws IOException {
-        String fileContent = String.join("\n", guests) + "\n";
+        String fileContent;
+        if (guests.isEmpty()) {
+            fileContent = "";
+        } else {
+            fileContent = String.join("\n", guests) + "\n";
+        }
         Files.writeString(PATH, fileContent);
     }
 }

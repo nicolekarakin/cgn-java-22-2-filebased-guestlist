@@ -23,8 +23,9 @@ public class GuestlistTest {
     @Test
     void shouldBeEmptyInitially() throws IOException {
         Guestlist guestlist = new Guestlist();
+        guestlist.setGuests(Collections.emptyList());
         List<String> actual = guestlist.getGuests();
-        Assertions.assertEquals(Collections.emptyList(), actual);
+        Assertions.assertIterableEquals(Collections.emptyList(), actual);
     }
 
     @Test
